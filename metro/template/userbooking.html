@@ -1,0 +1,120 @@
+{% extends "userbase.html" %}
+{% block content %}
+
+
+<div style="margin: 50px;">
+    <center> <h1 style="margin: 10px;color:rgb(255, 255, 255)">METRO Booking</h1>
+     <table  style="margin-top: 40px;padding: 20px;" class="table table-striped table-hover table-primary">
+     <tr>
+        
+         <th>DATE</th>
+      
+        <th>SOURCE</th>
+        <th>DESTINATION</th>
+        <th>AMOUNT</th>
+        <th>STATUS</th>
+        <th>TICKET</th>
+        <th>Service</th>
+        
+         
+       
+         
+      
+       
+      
+         {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+     </tr>
+ 
+{% for d in data %}
+   <tr>
+     
+   
+     <td>{{d.date}}</td>
+
+     <td>{{d.start}}</td>
+     <td>{{d.stop}}</td>
+     <td>{{d.amount}}</td>
+     <td>{{d.status}}</td>
+     {% if d.status == "Active" %}
+    <td><a href="/bill?fid={{d.id}}" style="color:aliceblue">TICKET</a></td>
+    {% else %}
+    <td>
+        EXPIRED
+    </td>
+    {% endif %}
+    {% if d.status == "Active" %}
+    <td><a href="/bookFood?id={{d.id}}&status=metro" style="color:aliceblue">FOODS</a></td>
+    {% if d.srStatus == "Not Booked" %}
+    {% if d.stop == "Edapally" or d.stop == "Aluva" or d.stop == "Town Hall" or d.stop == "SN Junction" %}
+    <td><a href="/feedBus?id={{d.id}}&status=metro" style="color:aliceblue">FeederBus</a></td>
+    {% else %}
+    <td>No Feeder Bus Service</td>
+    {% endif %}
+    <td><a href="/cabBook?id={{d.id}}&status=metro" style="color:aliceblue">CAB</a></td>
+    {% else %}
+    <td>{{d.srStatus}}</td>
+    {% endif  %}
+    {% endif %}
+  
+        
+      
+ </tr>
+   {% endfor %}
+
+     </table>
+ </center>
+ </div>
+
+ <br>
+<div style="margin: 50px;">
+    <center> <h1 style="margin: 10px;color:rgb(255, 255, 255)">WATER METRO Booking</h1>
+     <table  style="margin-top: 40px;padding: 20px;" class="table table-hover table-striped table-primary">
+     <tr>
+        
+         <th>DATE</th>
+      
+        <th>SOURCE</th>
+        <th>DESTINATION</th>
+        <th>AMOUNT</th>
+        <th>STATUS</th>
+        <th>TICKET</th>
+   
+        
+         
+       
+         
+      
+       
+      
+         {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+     </tr>
+ 
+{% for d in dataw %}
+   <tr>
+     
+   
+     <td>{{d.date}}</td>
+     <td>{{d.start}}</td>
+     <td>{{d.stop}}</td>
+     <td>{{d.amount}}</td>
+     <td>{{d.status}}</td>
+     {% if d.status == "Active" %}
+    <td><a href="/billw?id={{d.id}}" style="color:aliceblue;">TICKET</a></td>
+    {% else %}
+    <td>
+        EXPIRED
+    </td>
+    {% endif %}
+    {% if d.status == "Active" %}
+    <td><a href="/bookFood?id={{d.id}}&status=water" style="color:aliceblue">FOODS</a></td>
+    {% endif %}
+  
+        
+      
+ </tr>
+   {% endfor %}
+
+     </table>
+ </center>
+ </div>
+{% endblock %}

@@ -1,0 +1,122 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cooking - Restaurants Category Bootstrap Responsive Website Template - Contact Us : W3Layouts</title>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Template CSS Style link -->
+    <link rel="stylesheet" href="../static/assets/css/style-starter.css">
+</head>
+
+<body>
+    <!-- header -->
+    <header id="site-header" class="fixed-top">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" href="/">
+                    METRO<img height="50px" width="50px" src="../static/assets/images/flight.png"></i>
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                    <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarScroll">
+                  
+                    <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/adminHom">Home</a>
+                        </li>
+                    
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminbooking"> Bookings</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminfood"> Food Request</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link" href="/adminpayment">Payment</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+               
+            </nav>
+        </div>
+    </header>
+    <!-- //header -->
+
+    <!-- inner banner -->
+    <section class="inner-banner py-5">
+        <div class="w3l-breadcrumb py-lg-5">
+            <div class="container pt-5 pb-sm-4 pb-2">
+                <h4 class="inner-text-title font-weight-bold pt-5"></h4>
+<section class="w3l-contact-2 py-5" id="contact">
+    <div class="container py-lg-5 py-md-4 py-2">
+        <div class="w3l-header-sec text-center mb-md-5 mb-4">
+            
+            <h1 style="font-size:60px; color: aliceblue;" align="left">Add Stops</h1>
+        </div>
+        <div class="contact-grids d-grid">
+            <center>
+            <div class="contact-right">
+                <form  method="post" class="signin-form" enctype="multipart/form-data">
+                    {% csrf_token %}
+                   
+
+                    
+                      
+                           <input type="text" class="form-control" placeholder="Add Stop Name" name = "stop" style="height: 60px;width:600px">
+                       
+                    <div class="form-buttonhny text-lg-end">
+                        <button class="btn btn-style btn-primary">Add Station</button>
+                    </div>
+                </form>
+            </div>
+        </center>
+        </div>
+         <table class="table table-hover table-striped table-dark">
+            <tr>
+                <th>id</th>
+                <th>stop</th>
+            </tr> 
+            FOR SINGLE RECORD
+             <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.stopname}}</td>
+            </tr> 
+
+            For multiple 
+             {% for d in data %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.stopname}}</td>
+            </tr>
+            {% endfor %} 
+         </table>
+   
+      
+    </div>
+</section>
+</div>
+</div>
+</section>
+{% if messages %}
+{% for msg in messages %}
+<script>alert("{{msg}}")</script>
+{% endfor %}
+{% endif %}

@@ -1,0 +1,41 @@
+{% extends "commonbase.html" %}
+{% block content %}
+
+
+
+
+
+<style>
+    h3,fieldset{padding: 10px;
+    color:rgb(0, 0, 0)}
+</style>
+<h1 align="center" class="bg-light"><u>METRO SCHEDULES</u></h1>
+<div class="w3-services-grids py-lg-4 text-center" style="padding: 20px;">
+    <div class="fea-gd-vv row">
+        {% for d in data %}
+        <div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+            <div class="feature-gd icon-yellow">
+                <div class="icon">
+                    {% if d.type == "Water" %}
+                 <img src="../static/assets/images/Water.png" height="350px" width="350px" alt="">
+                 {% else %}
+                 <img src="../static/assets/images/Metro.png" height="350px" width="350px" alt="">
+
+                 {% endif %}
+                </div>
+                <div class="info" style="margin-top: 50px">
+                    <h3>
+                   {{d.mName}}</h3>
+                    Time:
+                    <h3>{{d.time}}</h3>
+                  
+                   
+               
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

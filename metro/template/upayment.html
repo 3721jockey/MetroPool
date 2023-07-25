@@ -1,0 +1,34 @@
+{% extends "userbase.html" %}
+{% block content %}
+
+
+
+<style>
+    table,tr,td{background-color: aliceblue;
+                font-size: large;}
+</style>
+<div class="container-fluid">
+    <center><h1 style="color:white;"><b>Payments</b></h1></center>
+
+    <table class="table bg-light table-hover table-danger table-striped text-center mt-5">
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            
+       
+          
+
+        </tr>
+        {% for d in data %}
+        
+            <tr>
+        <td>{{d.date}}</td>
+        <td>{{d.amt}}</td>
+
+       
+        </tr>
+        {% endfor %}
+        
+    </table>
+</div>
+{% endblock %}

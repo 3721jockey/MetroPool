@@ -1,0 +1,10 @@
+{% extends "userbase.html" %}
+{% block content %}
+
+
+
+<div style="display:flex;margin-left: 50px;padding: 100px;">
+  <a href="/cabPay?id={{id}}">  <div><img src="../static/assets/images/single.png" title="SINGLE CAB" height="350" style="background-color: aquamarine;padding:50px;border-radius: 2em;" width="350" alt=""></div></a>
+ <a href="/poolPay?id={{id}}">   <div><img src="../static/assets/images/carpool.png" title="CAR POOL" style="margin-left: 160px;background-color: aqua;padding:50px;border-radius: 2em;" height="350" width="350" alt=""></div></a>
+</div>
+{% endblock %}

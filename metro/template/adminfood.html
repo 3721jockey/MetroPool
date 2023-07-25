@@ -1,0 +1,51 @@
+{% extends "adminbase.html" %}
+{% block content %}
+
+<style>
+    th,td{
+        padding: 10px;
+        font-size: large;
+        color: rgb(0, 0, 0);
+    }
+    th{
+        background-color:rgb(251, 103, 35);
+        color: white;
+    }
+    </style>
+
+
+ <br>
+<div style="margin: 50px;">
+    <center> <h1 style="margin: 10px;color:rgb(0, 0, 0)">Food Booking</h1>
+     <table  style="margin-top: 40px;">
+     <tr>
+        
+         <th>REQUEST</th>
+         <th>STOP</th>
+  
+         
+       
+         
+      
+       
+      
+         {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+     </tr>
+ 
+{% for d in data %}
+   <tr>
+     
+   
+     <td>{{d.request}}</td>
+     <td>{{d.stop}}</td>
+
+
+        
+      
+ </tr>
+   {% endfor %}
+
+     </table>
+ </center>
+ </div>
+{% endblock %}

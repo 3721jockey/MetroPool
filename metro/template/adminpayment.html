@@ -1,0 +1,45 @@
+{% extends "adminbase.html" %}
+{% block content %}
+
+<div style="margin: 50px;">
+    <center> <h1 style="margin: 10px;color:rgb(0, 0, 0)">PAYMENTS</h1>
+     <table  style="margin-top: 40px;" class="table table-striped table-hover table-dark">
+     <tr>
+         <th>SENDER</th>
+         <th>CONTACT</th>
+         <th>DATE</th>
+      
+        <th>AMOUNT</th>
+        
+        
+        
+         
+       
+         
+      
+       
+      
+         {% comment %} <th colspan="2">ACTION</th> {% endcomment %}
+     </tr>
+ 
+{% for d in data %}
+   <tr>
+     <td>{{d.uid.name}}</td>
+     <td>{{d.uid.con}}</td>
+     
+   
+     <td>{{d.date}}</td>
+     <td>{{d.amt}}</td>
+     
+     
+    
+  
+        
+      
+ </tr>
+   {% endfor %}
+
+     </table>
+ </center>
+ </div>
+{% endblock %}
